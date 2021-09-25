@@ -1,15 +1,17 @@
-#!/bin/bash-x
+#!  /bin/bash -x
 
-echo "Welcome to the employ wage problem"
 #variable
 empCheck=$((RANDOM%2))
 
 #contant variable 
 IS_PRESENT=1
+EMP_RATE_PER_HR=20
 
-if [ $empcheck -eq $IS_PRESENT ]
+#selection
+if [ $empCheck -eq $IS_PRESENT ]
 then
-     echo "emp is present "
+     empHrs=8
+     salary=$(( empHrs * EMP_RATE_PER_HR ))
 else
-     echo " emp is absent "
+     salary=0
 fi

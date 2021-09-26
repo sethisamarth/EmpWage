@@ -11,6 +11,7 @@ totalworkhr=0
 maxworkhrs=80
 #selection
 day=1
+declare -a dailyWage
 function getWorkHr() {
       local empCheck=$1
       local    empHrs=0
@@ -35,10 +36,11 @@ do
       empHrs=$( getWorkHr $empCheck  )
      totalworkhr=$(( $totalworkhr + $empHrs ))
      salary=$((  $empHrs * $EMP_RATE_PER_HR ))
+     dailyWage[$day]=$((  $empHrs * $EMP_RATE_PER_HR ))
         ((day++))
 done
      totalsalary=$(( totalworkhr * EMP_RATE_PER_HR ))
       echo totalsalary:$totalsalary
-
+      echo wage:${dailyWage[*]}
 
 

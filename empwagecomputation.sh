@@ -8,9 +8,10 @@ is_partpresent=2
 EMP_RATE_PER_HR=20
 totalworkingdays=20
 totalworkhr=0
+maxworkhrs=100
 #selection
-
-for ((day=1;day<=$totalworkingdays;day++))
+day=1
+while (( $day<=$totalworkingdays && $totalworkhr < $maxworkhrs ))
 do
 
 empCheck=$((RANDOM%3))
@@ -25,6 +26,8 @@ case  $empCheck in
 esac
      totalworkhr=$(( totalworkhr + empHrs ))
      salary=$((  $empHrs * $EMP_RATE_PER_HR ))
+        ((day++))
 done
      totalsalary=$(( totalworkhr * EMP_RATE_PER_HR ))
+
 
